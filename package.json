@@ -20,5 +20,13 @@
   "description": "textlint rule for hex number",
   "dependencies": {
     "textlint-rule-helper": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaeda/textlint-rule-hex-number.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yaeda/textlint-rule-hex-number/issues"
+  },
+  "homepage": "https://github.com/yaeda/textlint-rule-hex-number"
 }
