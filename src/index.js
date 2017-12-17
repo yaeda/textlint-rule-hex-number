@@ -21,13 +21,13 @@ const reporter = (context, options = {}) => {
       }
 
       const text = getSource(node)
-      const regexp = new RegExp(`(?<=${PREFIX})[0-9a-fA-F]+`, 'g') // /(?<=0x)[0-9a-fA-F]+/g
+      const regexp = new RegExp(`${PREFIX}[0-9a-fA-F]+`, 'g')
       let matches
       while ((matches = regexp.exec(text)) !== null) {
-        const target = matches[0]
+        const target = matches[0].slice(PREFIX.length)
         const valid = capitalize ? target.toUpperCase() : target.toLowerCase()
         if (target !== valid) {
-          const indexOfBugs = matches.index - PREFIX.length
+          const indexOfBugs = matches.index
           const replace = fixer.replaceTextRange(
             [indexOfBugs, indexOfBugs + target.length + PREFIX.length],
             `${PREFIX}${valid}`
